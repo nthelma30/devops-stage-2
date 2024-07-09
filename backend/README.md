@@ -8,37 +8,51 @@ This directory contains the backend of the application built with FastAPI and a 
 - Poetry (for dependency management)
 - PostgreSQL (ensure the database server is running)
 
-### Installing Poetry
+# 1. Dockerfile for Backend
 
-To install Poetry, follow these steps:
+Create a Dockerfile in the backend directory to containerize the FastAPI backend:
 
-```sh
-curl -sSL https://install.python-poetry.org | python3 -
+```dockerfile
+# backend/Dockerfile
+FROM python:3.10-slim
+
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y netcat
+
+# Copy the dependencies files
+COPY pyproject.toml poetry.lock ./
+
+# Install Poetry
+RUN pip install poetry
+
+# Install dependencies
+RUN poetry install --no-dev
+
+# Copy the application code
+COPY . .
+
+# Expose the application port
+EXPOSE 8000
+
+# Command to run the application
+CMD ["poetry", "run", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
 ```
 
-Add Poetry to your PATH (if not automatically added):
+# 2. Environment Variables
 
-## Setup Instructions
+Configure the `DATABASE_URL` environment variable in your `.env` file or directly in the `docker-compose.yml` 
 
-1. **Navigate to the backend directory**:
-    ```sh
-    cd backend
-    ```
+# 3. Building and Running the Backend
 
-2. **Install dependencies using Poetry**:
-    ```sh
-    poetry install
-    ```
+Build and start the backend service using Docker Compose:
 
-3. **Set up the database with the necessary tables**:
-    ```sh
-    poetry run bash ./prestart.sh
-    ```
+```bash
+docker compose up --build -d backend
+```
 
-4. **Run the backend server**:
-    ```sh
-    poetry run uvicorn app.main:app --reload
-    ```
+# 4. Accessing the Backend
 
-5. **Update configuration**:
-   Ensure you update the necessary configurations in the `.env` file, particularly the database configuration.
+Access your backend service on `http://localhost:8000` once it start running. 
+Ensure your frontend application or API clients are configured to communicate with this endpoint.
