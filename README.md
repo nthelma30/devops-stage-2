@@ -16,11 +16,11 @@ A domain or a free subdomain from Afraid DNS
 
 # Instructions
 
-# 1. Fork the Repository
+#  Fork the Repository
 
 Create a fork of this repository to add the necessary Docker and proxy configuration files.
 
-# 2. Dockerization
+#  Dockerization
 
 Write Dockerfiles to containerize both the React frontend and FastAPI backend.
 
@@ -43,7 +43,7 @@ EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 ```
 
-# Dockerfile for Backend
+#  Dockerfile for Backend
 
 Create a `Dockerfile` in the `backend` directory:
 
@@ -59,7 +59,7 @@ EXPOSE 8000
 CMD ["poetry", "run", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
 ```
 
-# 3. Docker Compose Configuration
+#  Docker Compose Configuration
 
 Create a `docker-compose.yml` file in the root directory:
 
@@ -114,17 +114,17 @@ volumes:
   postgres_data:
 ```
 
-# 4. Configuration for Nginx Proxy Manager
+#  Configuration for Nginx Proxy Manager
 
 Configure Nginx Proxy Manager to:
 - Serve the frontend on `/`
 - Proxy `/api`, `/docs`, and `/redoc` to the backend
 
-# 5. Cloud Deployment
+#  Cloud Deployment
 
 Deploy the application to an AWS EC2 instance.
 
-# Steps:
+#  Steps:
 
 1. Launch an EC2 instance and SSH into it.
 2. Install Docker and Docker Compose on the instance.
@@ -136,11 +136,11 @@ Deploy the application to an AWS EC2 instance.
 docker compose up --build -d
 ```
 
-# 6. Domain and HTTPS Setup
+#  Domain and HTTPS Setup
 
 Set up a domain or get a free subdomain from Afraid DNS. Configure HTTP to redirect to HTTPS and www to redirect to non-www using Nginx Proxy Manager.
 
-# 7. Adminer and Proxy Manager Setup
+#  Adminer and Proxy Manager Setup
 
 - Configure Adminer to be accessible via `db.yourdomain.com`.
 - Configure Nginx Proxy Manager to be accessible via `proxy.yourdomain.com`.
