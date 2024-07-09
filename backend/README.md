@@ -8,7 +8,7 @@ This directory contains the backend of the application built with FastAPI and a 
 - Poetry (for dependency management)
 - PostgreSQL (ensure the database server is running)
 
-# 1. Dockerfile for Backend
+#  Dockerfile for Backend
 
 Create a Dockerfile in the backend directory to containerize the FastAPI backend:
 
@@ -40,11 +40,11 @@ EXPOSE 8000
 CMD ["poetry", "run", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
 ```
 
-# 2. Environment Variables
+#  Environment Variables
 
 Configure the `DATABASE_URL` environment variable in your `.env` file or directly in the `docker-compose.yml` 
 
-# 3. Building and Running the Backend
+#  Building and Running the Backend
 
 Build and start the backend service using Docker Compose:
 
@@ -52,7 +52,7 @@ Build and start the backend service using Docker Compose:
 docker compose up --build -d backend
 ```
 
-# 4. Accessing the Backend
+#  Accessing the Backend
 
 Access your backend service on `http://localhost:8000` once it start running. 
 Ensure your frontend application or API clients are configured to communicate with this endpoint.
