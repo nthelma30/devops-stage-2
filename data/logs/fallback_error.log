@@ -1,0 +1,6 @@
+2024/07/09 00:30:38 [error] 207#207: *120 open() "/var/www/html/robots.txt" failed (2: No such file or directory), client: 93.174.95.106, server: localhost-nginx-proxy-manager, request: "GET /robots.txt HTTP/1.1", host: "3.89.146.218"
+2024/07/09 00:30:38 [error] 207#207: *121 open() "/var/www/html/sitemap.xml" failed (2: No such file or directory), client: 93.174.95.106, server: localhost-nginx-proxy-manager, request: "GET /sitemap.xml HTTP/1.1", host: "3.89.146.218"
+2024/07/09 00:30:39 [error] 207#207: *122 open() "/var/www/html/.well-known/security.txt" failed (2: No such file or directory), client: 93.174.95.106, server: localhost-nginx-proxy-manager, request: "GET /.well-known/security.txt HTTP/1.1", host: "3.89.146.218"
+2024/07/09 00:30:40 [warn] 207#207: 512 worker_connections are not enough, reusing connections
+2024/07/09 00:30:40 [alert] 207#207: 512 worker_connections are not enough
+2024/07/09 00:30:40 [error] 208#208: *1109 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: localhost-nginx-proxy-manager, request: "GET /favicon.ico HTTP/1.1", upstream: "http://127.0.0.1:80/favicon.ico", host: "3.89.146.218"
