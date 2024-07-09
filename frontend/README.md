@@ -49,11 +49,11 @@ EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 ```
 
-# 1. Environment Variables
+#  Environment Variables
 
 Ensure you configure any environment variables required by your frontend application in the `.env` file or directly in the Dockerfile.
 
-# 2. Building and Running the Frontend
+#  Building and Running the Frontend
 
 Build and start the frontend service using Docker Compose:
 
@@ -61,11 +61,11 @@ Build and start the frontend service using Docker Compose:
 docker compose up --build -d frontend
 ```
 
-# 3. Accessing the Frontend
+#  Accessing the Frontend
 
 Assess the frontend service on `http://localhost` once it starts running. 
 Ensure your backend endpoints are correctly configured to be accessed by the frontend application.
 
 
-# 4. **Configure API URL**:
+# **Configure API URL**:
 Ensure the API URL is correctly set in the `.env` file.
